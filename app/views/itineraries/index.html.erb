@@ -1,0 +1,15 @@
+<h1>Itineraries</h1>
+
+<table>
+  <tr>
+    <th>Location</th>
+    <th>Travel Date</th>
+  </tr>
+<% @itineraries.each do |itinerary| %>
+  <tr>
+    <td><%= itinerary.location %></td>
+    <td><%= itinerary.travel_on %></td>
+    <td><%= link_to 'Show', itinerary %></td>
+  <tr>
+<% end %>
+</table>
