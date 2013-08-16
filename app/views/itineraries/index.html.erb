@@ -9,7 +9,11 @@
   <tr>
     <td><%= itinerary.location %></td>
     <td><%= itinerary.travel_on %></td>
-    <td><%= link_to 'Show', itinerary %></td>
+    <td><%= link_to 'Show', action: 'show', id: itinerary.id %></td>
   <tr>
 <% end %>
 </table>
+
+<p>
+<%= link_to 'New', action: 'new' %>
+</p>
