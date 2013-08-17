@@ -1,16 +1,2 @@
 <h1>New Itinerary</h1>
-<%= form_for(Itinerary.new) do |f| %>
-  <p>
-    <%= f.label :location %>
-    <%= f.text_field :location %>
-  </p>
-
-  <p>
-    <%= f.label :travel_on %>
-    <%= f.date_select :travel_on %>
-  </p>
-  
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<%= render 'form' %>
