@@ -28,4 +28,11 @@ class ItinerariesController < ApplicationController
     @itinerary.save
     redirect_to action: 'show', id: @itinerary.id
   end
+  
+  def destroy
+    @itinerary = Itinerary.find(params[:id])
+    @itinerary.destroy
+    flash[:notice] = "You have successfully deleted a itinerary"
+    redirect_to action: 'index'
+  end
 end
