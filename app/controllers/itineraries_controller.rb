@@ -14,19 +14,25 @@ class ItinerariesController < ApplicationController
   def create
     @itinerary = Itinerary.new
     @itinerary.attributes = params[:itinerary].permit(:location, :travel_on)
-    @itinerary.save
-    redirect_to action: 'show', id: @itinerary.id
+    if @itinerary.save
+      redirect_to action: 'show', id: @itinerary.id
+    else
+      render action: 'new'
+    end
   end
   
   def edit
     @itinerary = Itinerary.find(params[:id])
   end
-  
+
   def update
     @itinerary = Itinerary.find(params[:id])
     @itinerary.attributes = params[:itinerary].permit(:location, :travel_on)
-    @itinerary.save
-    redirect_to action: 'show', id: @itinerary.id
+    if @itinerary.save
+      redirect_to action: 'show', id: @itinerary.id
+    else
+      render action: 'edit'
+    end
   end
   
   def destroy

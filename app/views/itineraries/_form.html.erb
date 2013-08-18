@@ -1,3 +1,9 @@
+<ul>
+<% @itinerary.errors.full_messages.each do |full_message| %>
+  <li><%= full_message %></li>
+<% end %>
+</ul>
+
 <%= form_for(@itinerary) do |f| %>
   <p>
     <%= f.label :location %>
