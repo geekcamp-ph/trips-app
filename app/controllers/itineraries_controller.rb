@@ -6,11 +6,11 @@ class ItinerariesController < ApplicationController
   def index
     @itineraries = Itinerary.all
   end
-  
+
   def new
-    @itinerary = Itinerary.new  
+    @itinerary = Itinerary.new
   end
-  
+
   def create
     @itinerary = Itinerary.new
     @itinerary.attributes = params[:itinerary].permit(:location, :travel_on)
@@ -20,7 +20,7 @@ class ItinerariesController < ApplicationController
       render action: 'new'
     end
   end
-  
+
   def edit
     @itinerary = Itinerary.find(params[:id])
   end
@@ -34,7 +34,7 @@ class ItinerariesController < ApplicationController
       render action: 'edit'
     end
   end
-  
+
   def destroy
     @itinerary = Itinerary.find(params[:id])
     @itinerary.destroy
