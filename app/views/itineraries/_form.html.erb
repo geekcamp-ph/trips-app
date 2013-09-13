@@ -7,16 +7,12 @@
 <%= form_for(@itinerary, html: { role: 'form' }) do |f| %>
   <div class="form-group">
     <%= f.label :location, class: 'control-label' %>
-    <div class="">
-      <%= f.text_field :location, class: 'form-control' %>
-    </div>
+    <%= f.text_field :location, class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= f.label :travel_on, class: 'control-label' %>
-    <div class="">
-      <%= f.date_select :travel_on, class: 'form-control' %>
-    </div>
+    <%= f.date_select :travel_on, class: 'form-control' %>
   </div>
 
   <div class="form-group">
