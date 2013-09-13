@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def itinerary_row_class(itinerary)
+    'danger' if itinerary.estimated_cost > Itinerary.monthly_budget
+  end
+
   def sortable(column, title = nil)
     title ||= column.titleize
     css_class = column == sort_column ? "current "+sort_direction : nil

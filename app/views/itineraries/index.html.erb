@@ -17,7 +17,7 @@
   </thead>
   <tbody>
   <% @itineraries.each do |itinerary| %>
-    <tr>
+    <tr class="<%= itinerary_row_class(itinerary) %>">
       <td><%= itinerary.location %></td>
       <td><%= itinerary.travel_on %></td>
       <td><%= number_to_currency(itinerary.estimated_cost, unit: "PHP") %></td>
@@ -29,4 +29,3 @@
    <% end %>
   </tbody>
 </table>
-
