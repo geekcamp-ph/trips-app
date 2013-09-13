@@ -16,6 +16,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :estimated_cost, class: 'control-label' %>
+    <%= f.text_field :estimated_cost, class: 'form-control', :value => (number_with_precision(f.object.estimated_cost, :precision => 2) || 0) %>
+  </div>
+
+  <div class="form-group">
     <%= f.submit class: "btn btn-lg btn-primary" %>
   </div>
 <% end %>
