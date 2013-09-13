@@ -6,9 +6,6 @@
 </ul>
 
 <%= form_for(@itinerary, method: :delete) do |f| %>
-  <%= f.submit 'Delete Itinerary' %>
+  <%= f.submit 'Delete Itinerary', class: 'btn btn-primary' %>
+  <%= link_to 'Back', { action: 'index' }, class: 'btn btn-default' %>
 <% end %>
-
-<p>
-  <%= link_to 'Back', action: 'index' %>
-</p>

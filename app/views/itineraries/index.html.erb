@@ -1,24 +1,28 @@
 <h1>Itineraries</h1>
 
-<strong>Notice: <%= flash[:notice] %></strong>
+<p>
+  <%= link_to 'New', { action: 'new' }, class: 'btn btn-default' %>
+</p>
 
-<table>
-  <tr>
-    <th>Location</th>
-    <th>Travel Date</th>
-  </tr>
-<% @itineraries.each do |itinerary| %>
-  <tr>
-    <td><%= itinerary.location %></td>
-    <td><%= itinerary.travel_on %></td>
-    <td>
-      <%= link_to 'Show', action: 'show', id: itinerary.id %>
-      <%= link_to 'Edit', action: 'edit', id: itinerary.id %>
-    </td>
-  <tr>
-<% end %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Location</th>
+      <th>Travel Date</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @itineraries.each do |itinerary| %>
+    <tr>
+      <td><%= itinerary.location %></td>
+      <td><%= itinerary.travel_on %></td>
+      <td>
+        <%= link_to 'Show', { action: 'show', id: itinerary.id }, class: 'btn btn-default' %>
+        <%= link_to 'Edit', { action: 'edit', id: itinerary.id }, class: 'btn btn-default' %>
+      </td>
+      <tr>
+   <% end %>
+  </tbody>
 </table>
 
-<p>
-<%= link_to 'New', action: 'new' %>
-</p>
