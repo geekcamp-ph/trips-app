@@ -1,4 +1,5 @@
 TripsApp::Application.routes.draw do
-  resources :itineraries
-  resources :trips
+  resources :trips do
+    resources :itineraries
+  end
 end

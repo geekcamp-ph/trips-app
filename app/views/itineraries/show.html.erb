@@ -7,7 +7,9 @@
   <li>Estimated Cost: <%= number_to_currency(@itinerary.estimated_cost, unit: "PHP") %></li>
 </ul>
 
-<%= form_for(@itinerary, method: :delete, html: { role: 'form' }) do |f| %>
+<%= form_for([@itinerary.trip, @itinerary], method: :delete, html: { role: 'form' }) do |f| %>
   <%= f.submit 'Delete Itinerary', class: 'btn btn-primary' %>
-  <%= link_to 'Back', { action: 'index' }, class: 'btn btn-default' %>
+  <%= link_to 'Back', { action: 'index', trip_id: @itinerary.trip }, class: 'btn btn-default' %>
 <% end %>
+
+
