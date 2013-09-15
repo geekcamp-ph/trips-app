@@ -9,6 +9,7 @@
 <table class="table table-hover">
   <thead>
     <tr>
+      <th><%= sortable 'trip_id', 'Trip' %></th>
       <th><%= sortable 'location' %></th>
       <th><%= sortable 'travel_on', 'Travel Date' %></th>
       <th><%= sortable 'estimated_cost', 'Estimated Cost' %></th>
@@ -18,6 +19,7 @@
   <tbody>
   <% @itineraries.each do |itinerary| %>
     <tr class="<%= itinerary_row_class(itinerary) %>">
+      <td><%= itinerary.trip %></td>
       <td><%= itinerary.location %></td>
       <td><%= itinerary.travel_on %></td>
       <td><%= number_to_currency(itinerary.estimated_cost, unit: "PHP") %></td>

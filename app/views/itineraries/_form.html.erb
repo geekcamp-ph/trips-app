@@ -6,6 +6,11 @@
 
 <%= form_for(@itinerary, html: { role: 'form' }) do |f| %>
   <div class="form-group">
+    <%= f.label :trip_id, class: 'control-label' %>
+    <%= f.collection_select :trip_id, Trip.all.order(:name), :id, :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :location, class: 'control-label' %>
     <%= f.text_field :location, class: 'form-control' %>
   </div>

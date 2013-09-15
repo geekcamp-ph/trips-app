@@ -1,6 +1,7 @@
 <h1>Itinerary <%= @itinerary.id %></h1>
 
 <ul class="list-unstyled">
+  <li>Trip: <%= @itinerary.trip %></li>
   <li>Location: <%= @itinerary.location %></li>
   <li>Travel Date: <%= @itinerary.travel_on %></li>
   <li>Estimated Cost: <%= number_to_currency(@itinerary.estimated_cost, unit: "PHP") %></li>

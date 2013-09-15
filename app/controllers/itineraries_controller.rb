@@ -17,7 +17,7 @@ class ItinerariesController < ApplicationController
 
   def create
     @itinerary = Itinerary.new
-    @itinerary.attributes = params[:itinerary].permit(:location, :travel_on, :estimated_cost)
+    @itinerary.attributes = params[:itinerary].permit(:location, :travel_on, :estimated_cost, :trip_id)
     if @itinerary.save
       redirect_to action: 'show', id: @itinerary.id
     else
@@ -31,7 +31,7 @@ class ItinerariesController < ApplicationController
 
   def update
     @itinerary = Itinerary.find(params[:id])
-    @itinerary.attributes = params[:itinerary].permit(:location, :travel_on, :estimated_cost)
+    @itinerary.attributes = params[:itinerary].permit(:location, :travel_on, :estimated_cost, :trip_id)
     if @itinerary.save
       redirect_to action: 'show', id: @itinerary.id
     else
