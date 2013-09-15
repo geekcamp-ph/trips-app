@@ -24,9 +24,9 @@
       <td><%= itinerary.travel_on %></td>
       <td><%= number_to_currency(itinerary.estimated_cost, unit: "PHP") %></td>
       <td>
-        <%= link_to 'Show', { action: 'show', id: itinerary.id }, class: 'btn btn-default' %>
-        <%= link_to 'Edit', { action: 'edit', id: itinerary.id }, class: 'btn btn-default' %>
-        <%= link_to 'Delete', { action: 'show', id: itinerary.id }, method: 'delete', confirm: "Are you sure you want to delete this?", class: 'btn btn-default' %>
+        <%= link_to 'Show', itinerary_path(itinerary.id), class: 'btn btn-default' %>
+        <%= link_to 'Edit', edit_itinerary_path(itinerary.id), class: 'btn btn-default' %>
+        <%= link_to 'Delete', itinerary_path(itinerary.id), method: 'delete', confirm: "Are you sure you want to delete this?", class: 'btn btn-default' %>
       </td>
       <tr>
    <% end %>
