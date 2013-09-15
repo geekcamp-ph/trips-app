@@ -11,12 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130913065540) do
+ActiveRecord::Schema.define(version: 20130915035131) do
 
   create_table "itineraries", force: true do |t|
     t.string  "location"
     t.date    "travel_on"
     t.decimal "estimated_cost", precision: 5, scale: 2, default: 0.0
+  end
+
+  create_table "trips", force: true do |t|
+    t.string "name"
   end
 
 end

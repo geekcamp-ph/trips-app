@@ -1,0 +1,10 @@
+<h1>Trip <%= @trip.id %></h1>
+
+<ul class="list-unstyled">
+  <li>Trip: <%= @trip.name %></li>
+</ul>
+
+<%= form_for(@trip, method: :delete, html: { role: 'form' }) do |f| %>
+  <%= f.submit 'Delete Trip', class: 'btn btn-primary' %>
+  <%= link_to 'Back', { action: 'index' }, class: 'btn btn-default' %>
+<% end %>

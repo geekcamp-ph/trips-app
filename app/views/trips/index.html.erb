@@ -1,0 +1,26 @@
+<h1>Trips</h1>
+
+<p>
+  <%= link_to 'New', { action: 'new' }, class: 'btn btn-default' %>
+</p>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th><%= sortable 'name' %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @trips.each do |trip| %>
+    <tr>
+      <td><%= trip.name %></td>
+      <td>
+        <%= link_to 'Show', { action: 'show', id: trip.id }, class: 'btn btn-default' %>
+        <%= link_to 'Edit', { action: 'edit', id: trip.id }, class: 'btn btn-default' %>
+        <%= link_to 'Delete', { action: 'show', id: trip.id }, method: 'delete', confirm: "Are you sure you want to delete this?", class: 'btn btn-default' %>
+      </td>
+      <tr>
+   <% end %>
+  </tbody>
+</table>
