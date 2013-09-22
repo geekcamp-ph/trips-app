@@ -1,0 +1,9 @@
+<section class="budget">
+  <h1><a href="#" class="title">Set your budget</a></h1>
+  <section class="budgets" style="display: none;">
+    <%= render partial: 'budgets/form', locals: { budget: @budget, name: "Create" } %>
+    <% @budgets.each do |budget| %>
+      <%= render partial: 'budgets/form', locals: { budget: budget, name: 'Update' } %>
+    <% end %>
+  </section>
+</section>

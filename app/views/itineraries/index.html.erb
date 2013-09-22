@@ -4,7 +4,7 @@
   <%= link_to 'New', { action: 'new' }, class: 'btn btn-default' %>
 </p>
 
-<h2>Remaining budget: <em><%= number_to_currency(@remaining_budget, unit: "PHP") %></em></h2>
+<%= show_remaining_budget %>
 
 <table class="table table-hover">
   <thead>
@@ -24,9 +24,9 @@
       <td><%= itinerary.travel_on %></td>
       <td><%= number_to_currency(itinerary.estimated_cost, unit: "PHP") %></td>
       <td>
-        <%= link_to 'Show', itinerary_path(itinerary.id), class: 'btn btn-default' %>
-        <%= link_to 'Edit', edit_itinerary_path(itinerary.id), class: 'btn btn-default' %>
-        <%= link_to 'Delete', itinerary_path(itinerary.id), method: 'delete', confirm: "Are you sure you want to delete this?", class: 'btn btn-default' %>
+        <%= link_to 'Show', trip_itinerary_path(itinerary.trip, itinerary), class: 'btn btn-default' %>
+        <%= link_to 'Edit', edit_trip_itinerary_path(itinerary.trip, itinerary), class: 'btn btn-default' %>
+        <%= link_to 'Delete', trip_itineraries_path(itinerary.trip, itinerary), method: 'delete', confirm: "Are you sure you want to delete this?", class: 'btn btn-default' %>
       </td>
       <tr>
    <% end %>

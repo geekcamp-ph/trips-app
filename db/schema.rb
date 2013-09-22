@@ -11,17 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130915064923) do
+ActiveRecord::Schema.define(version: 20130922095829) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "budgets", force: true do |t|
+    t.decimal  "budget",    precision: 10, scale: 2, default: 0.0
+    t.decimal  "decimal",   precision: 10, scale: 2, default: 0.0
+    t.datetime "date_from",                                        null: false
+    t.datetime "date_to",                                          null: false
+  end
 
   create_table "itineraries", force: true do |t|
-    t.string  "location"
-    t.date    "travel_on"
-    t.decimal "estimated_cost", precision: 5, scale: 2, default: 0.0
-    t.integer "trip_id"
+    t.string  "location",                                              null: false
+    t.date    "travel_on",                                             null: false
+    t.decimal "estimated_cost", precision: 10, scale: 2, default: 0.0
+    t.integer "trip_id",                                               null: false
   end
 
   create_table "trips", force: true do |t|
-    t.string "name"
+    t.string "name", null: false
   end
 
 end
