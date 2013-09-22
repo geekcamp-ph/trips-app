@@ -2,9 +2,7 @@ class ItinerariesController < ApplicationController
 
   helper_method :sort_column, :sort_direction
 
-  before_filter do
-    @trip = Trip.find(params[:trip_id])
-  end
+  before_filter :find_trip
 
   def show
     @itinerary = Itinerary.find(params[:id])
@@ -51,6 +49,10 @@ class ItinerariesController < ApplicationController
   end
 
   private
+
+  def find_trip
+    @trip = Trip.find(params[:trip_id])
+  end
 
   def sort_column
    Itinerary.column_names.include?(params[:sort]) ? params[:sort] : "location"
