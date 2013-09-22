@@ -3,7 +3,6 @@ class Budget < ActiveRecord::Base
   validates :budget, presence: true
   validates :date_from, presence: true
   validates :date_to, presence: true
-
   validate :time_uniqueness, on: :create
 
   class << self

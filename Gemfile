@@ -9,6 +9,6 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
-group :doc do
-  gem 'sdoc', require: false
+group :test do
+  gem 'capybara'
 end

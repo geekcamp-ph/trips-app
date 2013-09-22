@@ -5,7 +5,8 @@ module ApplicationHelper
   end
 
   def show_remaining_budget
-    %Q{#{content_tag :h2, "Remaining Yearly Budget #{number_to_currency(Budget.remaining_yearly_budget, unit: "PHP")}"}}.html_safe
+    yearly_budget_remaining = number_to_currency(Budget.remaining_yearly_budget, unit: "PHP")
+    content_tag :h2, "Remaining Yearly Budget: "+ yearly_budget_remaining
   end
 
   def sortable(column, title = nil)
