@@ -1,14 +1,18 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.0.rc2'
-gem 'pg'
-gem 'sass-rails', '~> 4.0.0.rc2'
-gem 'uglifier', '>= 1.3.0'
+gem 'authlogic'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'jquery-rails'
-gem 'turbolinks'
+gem 'devise'
+gem 'i18n', '>=0.6.5'
 gem 'jbuilder', '~> 1.2'
+gem 'jquery-rails'
+gem 'pg'
+gem 'rails', '4.0.0.rc2'
+gem 'sass-rails', '~> 4.0.0.rc2'
+gem 'turbolinks'
+gem 'uglifier', '>= 1.3.0'
 
 group :test do
-  gem 'capybara'
+  gem 'minitest-rails'
+  gem 'minitest-rails-capybara'
 end
