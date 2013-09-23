@@ -19,6 +19,7 @@ class ItinerariesController < ApplicationController
   def create
     @itinerary = Itinerary.new
     @itinerary.attributes = params[:itinerary].permit(:location, :travel_on, :estimated_cost, :trip_id)
+    @itinerary.user_id = current_user.id
     if @itinerary.save
       redirect_to action: 'show', id: @itinerary.id
     else
@@ -33,6 +34,7 @@ class ItinerariesController < ApplicationController
   def update
     @itinerary = Itinerary.find(params[:id])
     @itinerary.attributes = params[:itinerary].permit(:location, :travel_on, :estimated_cost, :trip_id)
+    @itinerary.user_id = current_user.id
     if @itinerary.save
       redirect_to action: 'show', id: @itinerary.id
     else
@@ -54,10 +56,10 @@ class ItinerariesController < ApplicationController
   end
 
   def sort_column
-   Itinerary.column_names.include?(params[:sort]) ? params[:sort] : "location"
+    Itinerary.column_names.include?(params[:sort]) ? params[:sort] : "location"
   end
 
   def sort_direction
-   %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end

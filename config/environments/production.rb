@@ -26,6 +26,18 @@ TripsApp::Application.configure do
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
+  config.action_mailer.default_url_options = { host: 'geekcamp-trips.herokuapp.com' }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               ENV['GEEKCAMP_EMAIL_DOMAIN'],
+    user_name:            [ENV['GEEKCAMP_EMAIL_USERNAME'], ENV['GEEKCAMP_EMAIL_DOMAIN']].join('@'),
+    password:             ENV['GEEKCAMP_EMAIL_PASSWORD'],
+    authentication:       'plain',
+    enable_starttls_auto: true  }
+
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 

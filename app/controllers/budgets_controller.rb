@@ -3,6 +3,7 @@ class BudgetsController < ApplicationController
   def create
     @budget = Budget.new
     @budget.attributes = params[:budget].permit(:budget, :date_from, :date_to)
+    @budget.user_id = current_user.id
     if @budget.save
       flash[:notice] = "Successfully added your budget"
     else
@@ -14,6 +15,7 @@ class BudgetsController < ApplicationController
   def update
     @budget = Budget.find(params[:id])
     @budget.attributes = params[:budget].permit(:budget, :date_from, :date_to)
+    @budget.user_id = current_user.id
     if @budget.save
       flash[:notice] = "Successfully updated your budget"
     else

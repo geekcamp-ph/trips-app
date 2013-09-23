@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'authlogic'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
 gem 'i18n', '>=0.6.5'

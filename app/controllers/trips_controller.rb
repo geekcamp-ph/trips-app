@@ -19,6 +19,8 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new
     @trip.attributes = params[:trip].permit(:name)
+    @trip.user_id = current_user.id
+
     if @trip.save
       redirect_to action: 'show', id: @trip.id
     else
@@ -31,6 +33,7 @@ class TripsController < ApplicationController
 
   def update
     @trip.attributes = params[:trip].permit(:name)
+    @trip.user_id = current_user.id
     if @trip.save
       redirect_to action: 'show', id: @trip.id
     else
