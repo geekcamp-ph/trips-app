@@ -6,8 +6,8 @@ class Trip < ActiveRecord::Base
   validates :name, presence: true
 
   class << self
-    def ordered_by_name
-      self.all.order(:name)
+    def ordered_by_name(user)
+      self.where(user_id: user.id).order(:name)
     end
   end
 
