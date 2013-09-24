@@ -11,7 +11,7 @@ class Itinerary < ActiveRecord::Base
     end
 
     def for_year(date=Time.zone.now)
-      self.where("itineraries.travel_on > ? and travel_on < ?", date.beginning_of_year, date.end_of_year)
+      self.where("travel_on > ? and travel_on < ?", date.beginning_of_year, date.end_of_year)
     end
 
     def total_yearly_estimated_cost(user, date=Time.zone.now)

@@ -9,7 +9,7 @@ class TripsController < ApplicationController
   end
 
   def index
-    @trips = Trip.order(sort_column + " " + sort_direction)
+    @trips = Trip.where(user_id: current_user.id).order(sort_column + " " + sort_direction)
   end
 
   def new
@@ -55,7 +55,7 @@ class TripsController < ApplicationController
  end
 
  def list_budget
-   @budgets = Budget.order('date_from desc')
+   @budgets = Budget.where(user_id: current_user.id).order('date_from desc')
    @budget = Budget.new
  end
 

@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20130923060609) do
     t.decimal  "decimal",   precision: 10, scale: 2, default: 0.0
     t.datetime "date_from",                                        null: false
     t.datetime "date_to",                                          null: false
-    t.integer  "user_id"
+    t.integer  "user_id",                                          null: false
   end
 
   create_table "itineraries", force: true do |t|
