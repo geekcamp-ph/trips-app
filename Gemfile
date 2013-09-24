@@ -12,3 +12,8 @@ gem 'rails', '4.0.0.rc2'
 gem 'sass-rails', '~> 4.0.0.rc2'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+
+group :test do
+  gem 'database_cleaner'
+  gem 'factory_girl'
+end

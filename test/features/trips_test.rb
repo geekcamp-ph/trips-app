@@ -2,7 +2,7 @@ require "test_helper"
 
 feature "Trips" do
   before do
-    User.create!(first_name: "John", last_name: "Doe", email: 'john@testing.tld', password: 'testingthis', password_confirmation: 'testingthis')
+    create(:user)
   end
 
   scenario "the home page should show trips" do

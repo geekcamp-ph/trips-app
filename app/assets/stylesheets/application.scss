@@ -10,6 +10,10 @@ footer {
   padding-right: 15px;
 }
 
+form {
+  max-width: 500px;
+}
+
 // Off Canvas Theme
 @media screen and (max-width: 768px) {
   .row-offcanvas {
