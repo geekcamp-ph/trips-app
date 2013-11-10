@@ -9,7 +9,7 @@ class ItinerariesController < ApplicationController
   end
 
   def index
-    @itineraries = @trip.itineraries.order(sort_column + " " + sort_direction)
+    @itineraries = @trip.itineraries.order([sort_column, sort_direction].join(" "))
   end
 
   def new
