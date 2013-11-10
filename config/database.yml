@@ -9,7 +9,7 @@ development:
   host: localhost
   database: trips_app_development
   pool: 5
-  username: katz
+  username: kat
   password:
 
 # Warning: The database defined as "test" will be erased and
@@ -21,7 +21,7 @@ test:
   host: localhost
   database: trips_app_test
   pool: 5
-  username: katz
+  username: kat
   password:
 
 production:

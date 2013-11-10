@@ -2,14 +2,14 @@ class TripsController < ApplicationController
 
   helper_method :sort_column, :sort_direction
 
-  before_filter :find_trip, except: [:index, :new, :create]
-  before_filter :list_budget, only: [:index]
+  before_action :find_trip, except: [:index, :new, :create]
+  before_action :list_budget, only: [:index]
 
   def show
   end
 
   def index
-    @trips = Trip.where(user_id: current_user.id).order(sort_column + " " + sort_direction)
+    @trips = Trip.where(user_id: current_user.id).order([sort_column, sort_direction].join(" "))
   end
 
   def new
@@ -17,8 +17,7 @@ class TripsController < ApplicationController
   end
 
   def create
-    @trip = Trip.new
-    @trip.attributes = params[:trip].permit(:name)
+    @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
 
     if @trip.save
@@ -32,9 +31,8 @@ class TripsController < ApplicationController
   end
 
   def update
-    @trip.attributes = params[:trip].permit(:name)
     @trip.user_id = current_user.id
-    if @trip.save
+    if @trip.update(trip_params)
       redirect_to action: 'show', id: @trip.id
     else
       render action: 'edit'
@@ -52,6 +50,10 @@ class TripsController < ApplicationController
  def find_trip
    id = params[:trip_id] ? params[:trip_id] : params[:id]
    @trip = Trip.find(id)
+ end
+
+ def trip_params
+   params.require(:trip).permit(:name)
  end
 
  def list_budget
