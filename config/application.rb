@@ -5,7 +5,9 @@ require "action_controller/railtie"
 require 'rake/testtask'
 require "action_mailer/railtie"
 require "sprockets/railtie"
-require "minitest/rails/railtie"
+if Rails.env.test?
+  require "minitest/rails/railtie"
+end
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
